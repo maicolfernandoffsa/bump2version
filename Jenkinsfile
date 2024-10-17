@@ -1,6 +1,11 @@
 pipeline {
     agent {
-        label 'docker'
+        docker {
+            image '<image name>'
+            registryUrl 'https://registry.hub.docker.com'
+            registryCredentialsId 'docker-credentials'
+            args '--network host -u root:root'
+        }
     }
 
     environment {
